@@ -113,7 +113,9 @@ tw-link.visited {
 
 
 
+
 </style><script role="script" id="twine-user-script" type="text/twine-javascript">
+
 
 
 
@@ -304,9 +306,9 @@ $turns minutes]]\
 
 (set: $monster to (datamap: &quot;fleeChance&quot;, 50, &quot;damage&quot;, 15, &quot;bonus&quot;, &quot;Try to bat it away&quot;))\
 (display: &quot;monster&quot;)]\
-(else:)[Carnivorous pigeons stare at you from the rafters. They cock their heads and look at you through red eyes. Do not imagine that you can escape them.
+(else:)[Carnivorous pigeons stare at you from the rafters. They cock their heads and look at you through red eyes. Do not imagine that you can hide from them.
 
-(set: $monster to (datamap: &quot;fleeChance&quot;, 30, &quot;damage&quot;, 18, &quot;bonus&quot;, &quot;Feed them&quot;))\
+(set: $monster to (datamap: &quot;fleeChance&quot;, 30, &quot;damage&quot;, 20, &quot;bonus&quot;, &quot;Feed them&quot;))\
 (display: &quot;monster&quot;)]</tw-passagedata><tw-passagedata pid="9" name="poop" tags="" position="927,784">You enter a small tiled bathroom. The walls are smeared with something brown.
 
 (set: $delayExecute to &quot;(set: $sanity to it - (random:10,15))&quot;)\
@@ -380,7 +382,7 @@ You slam the book shut. What have you unleashed?
 
 (set: $sanity to it + (random:10,16))\
 [[Onwards!|Main]]]\
-</tw-passagedata><tw-passagedata pid="21" name="EatPeckish" tags="" position="807,609.3090783792295">It tastes almost exactly nothing like watermelon. You are still hungry.
+</tw-passagedata><tw-passagedata pid="21" name="EatPeckish" tags="" position="807,609">It tastes almost exactly nothing like watermelon. You are still hungry.
 (set: $satiety to it + 10)\
 (set: $sanity to it - 10)\
 
@@ -423,7 +425,7 @@ You slam the book shut. What have you unleashed?
 (set: $energy to it + (random: -23, 25))\
 (set: $satiety to it + (random: -23,25))\
 [[Was that wise?|Main]]</tw-passagedata><tw-passagedata pid="29" name="Pray" tags="" position="959,1453">(if: $inventory contains &quot;godStains&quot;)[You have eaten the only one who could answer your prayer.]\
-(else:)[You sacrifice some sanity but are rewarded in other ways.
+(else:)[Praying to the tentacled deity is a discomfitting experience, but you are duly rewarded for your time.
 
 (set: $sanity to it - 10)\
 (set: $HP to it + (random:10,15))\
@@ -606,13 +608,13 @@ This may save you should you ever find yourself being rowed across a sunless riv
 [[Rub it on your wounds.]]
 (if: $hunger &gt; 1)[[[Eat it.|EatPeckish]]
 ]\
-[[No. Don&#x27;t do any of those things.]]</tw-passagedata><tw-passagedata pid="60" name="Smell it." tags="" position="1378,1436">It smells lemony and bitter and caustic. When some splashes on you it burns like acid. (Did you spill it by accident, or was whatever is in the vial trying to escape?)
+[[No. Don&#x27;t do any of those things.]]</tw-passagedata><tw-passagedata pid="60" name="Smell it." tags="" position="1530,1330">It smells lemony and bitter and caustic. When some splashes on you it burns like acid. (Did you spill it by accident, or was whatever is in the vial trying to escape?)
 
 The scent is bracing, in its own way. You feel alert and energised. 
 
 (set: $HP to it - 10)\
-(set: $energy to it + 17)\
-[[Onwards!|Main]]</tw-passagedata><tw-passagedata pid="61" name="Rub it on your wounds." tags="" position="1557,1480">The jelly burns, but it also seems to help your wounds. The muscles stitch together and your skin regrows. Only it regrows strangely; you might not be hurt anymore, but these parts of your body feel rubbery and misshapen.
+(set: $energy to it + 15)\
+[[Onwards!|Main]]</tw-passagedata><tw-passagedata pid="61" name="Rub it on your wounds." tags="" position="1771,1303">The jelly burns, but it also seems to help your wounds. The muscles stitch together and your skin regrows. Only it regrows strangely; you might not be hurt anymore, but these parts of your body feel rubbery and foreign.
 
 (set: $HP to it + 15)\
 (set: $sanity to it - 10)\
@@ -635,11 +637,11 @@ It&#x27;s gone. You&#x27;ll never see this part of the dungeon again.
 [[Was that wise?|Main]]</tw-passagedata><tw-passagedata pid="66" name="No. Don&#x27;t do any of those things." tags="" position="1643,1354">(set: $sanity to it + 5)\
 [[That&#x27;s probably wise.|Main]]</tw-passagedata><tw-passagedata pid="67" name="monsters1" tags="" position="1287,936">(if: (random: 1,2) is 1)[It&#x27;s an elemental elephant! It attacks using carbon, hydrogen, nitrogen and oxygen.
 
-(set: $monster to (datamap: &quot;fleeChance&quot;, 78, &quot;damage&quot;, 22))\
+(set: $monster to (datamap: &quot;fleeChance&quot;, 78, &quot;damage&quot;, 20))\
 (display: &quot;monster&quot;)]\
 (else:)[A monstrous cat stalks down the corridor. It lets out an unearthly high-pitched shriek.
 
-(set: $monster to (datamap: &quot;fleeChance&quot;, 65, &quot;damage&quot;, 10, &quot;bonus&quot;, &quot;Pat&quot;))\
+(set: $monster to (datamap: &quot;fleeChance&quot;, 65, &quot;damage&quot;, 12, &quot;bonus&quot;, &quot;Pat&quot;))\
 (display: &quot;monster&quot;)]</tw-passagedata><tw-passagedata pid="68" name="Average juice" tags="" position="123,1662">Average juice! It&#x27;s a slimy grey colour.
 
 (set: $drink to 1)\
@@ -940,12 +942,12 @@ Happy birthday!
 (set: $blessings to it + (array: &quot;discovery&quot;))\
 [[Onwards!|Main]]</tw-passagedata><tw-passagedata pid="115" name="Blessed" tags="" position="1282,46">This room of the dungeon sparkles and glows with incandescence. Basking in the light makes you feel better and healthier in every way.
 
-(live: 0.8s)[(set: $HP to it + (random:0,2))(set: $energy to it + (random:0,2))(set: $sanity to it + (random:0,2))(set: $satiety to it + (random:0,2))\
+(set: $s to (live: 0.7s))\
+(live: 0.7s)[(set: $HP to it + (random:0,2))(set: $energy to it + (random:0,2))(set: $sanity to it + (random:0,2))(set: $satiety to it + (random:0,2))\
 (if: $hp &gt;100)[(stop:)]\
 (if: $energy &gt;100)[(stop:)]\
 (if: $sanity &gt;100)[(stop:)]\
 (if: $satiety &gt;100)[(stop:)]]\
-(set: $s to (live: 0.8s))\
 [[Leave now|Main]]</tw-passagedata><tw-passagedata pid="116" name="Tea Ceremony" tags="" position="2167,1696">Three dungeon slimes are holding a tea ceremony. They invite you to join them.
 
 (if: $slimeEnemy is 1)[This time, however, they are skittish; they look at you sideways and whisper furtively among themselves. They must have heard about your crimes against slimes at previous tea ceremonies.
@@ -1096,7 +1098,7 @@ $x[Make a poor decision.]
 $x[Make a bright decision.]
 
 =&gt;&lt;=
-[[Begin again]]</tw-passagedata><tw-passagedata pid="134" name="Header" tags="header" position="250,82">{
+[[Begin again|init]]</tw-passagedata><tw-passagedata pid="134" name="Header" tags="header" position="250,82">{
 (print: &quot;&lt;script&gt;$(&#x27;html&#x27;).removeClass(\)&lt;/script&gt;&quot;)
 (if: (passage:)&#x27;s tags&#x27;s length &gt; 0)[
 (print: &quot;&lt;script&gt;$(&#x27;html&#x27;).addClass(&#x27;&quot; + (passage:)&#x27;s tags.join(&#x27; &#x27;) + &quot;&#x27;\)&lt;/script&gt;&quot;)
@@ -1145,7 +1147,7 @@ When you pull away your lips are stained and your heart is pounding.
 
 It leans in close to you once more. This time, though, you feel something seep out of your mouth. Your knees buckle; your vision blears; your ears ring. The pain begins to fade into blankness.
 
-And then, abruptly, it stops. You hear footsteps - real footsteps! - walk away from you. The ghost with the bleeding mouth took almost everything, left just enough for you to survive.
+And then, abruptly, it stops. You hear footsteps - real footsteps! - walk away from you. The ghost with the bleeding mouth took almost everything, but it left just enough for you to survive.
 
 When you wake you find a note thanking you for your donation and a key placed on the ground in front of you.
 
