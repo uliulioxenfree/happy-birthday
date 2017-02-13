@@ -78,16 +78,14 @@ tw-passage tw-include[title="Sidebar"] tw-link{
 		font-weight: normal;
 }
 
-tw-link {
-	color: blue;
-}
-tw-link.visited {
-	color:blue;
-}
-
-
-
-
+tw-link, enchantment-link /* sets both base link colors */
+{ color: #1919e6; }
+tw-link:hover, enchantment-link:hover /* sets both hover link colors */
+{ color: #197fe6; }
+.visited /* all visited links */
+{ color: #1919e6; }
+.visited:hover /* all visited hover links */
+{ color: #197fe6; }
 
 
 
@@ -115,6 +113,7 @@ tw-link.visited {
 
 
 </style><script role="script" id="twine-user-script" type="text/twine-javascript">
+
 
 
 
