@@ -298,7 +298,9 @@ $turns minutes]]\
 </tw-passagedata><tw-passagedata pid="6" name="Run" tags="" position="967,1053">(if: (random: 1, 100) &lt;= ($monster&#x27;s fleeChance + $fleeBonus))[You escaped. (set: $energy to it - 5)
 
 [[Onwards!|Main]]]\
-(else:)[Your attempt to flee is unsuccesful.(set: $energy to it - 5)(set: $HP to it - ($monster&#x27;s damage))
+(else:)[Your attempt to flee was unsuccesful; you made it only a short distance before being mauled.
+
+You are tired *and* injured now.(set: $energy to it - 5)(set: $HP to it - ($monster&#x27;s damage))
 
 [[Limp on.|Main]]]</tw-passagedata><tw-passagedata pid="7" name="Pat" tags="" position="756,1063">There is a moment of soft cuddly contentment. This is followed by several moments of searing pain as its claws rend your flesh.
 (set: $HP to it - $monster&#x27;s damage)(set: $sanity to it + 5)\
