@@ -112,7 +112,9 @@ tw-link:hover, enchantment-link:hover /* sets both hover link colors */
 
 
 
+
 </style><script role="script" id="twine-user-script" type="text/twine-javascript">
+
 
 
 
@@ -293,10 +295,10 @@ $turns minutes]]\
 ]\
 (if: $ghostFriend &gt;=4 and $HP &gt;50)[[[Grant a request|Accept a request]]
 ]\
-</tw-passagedata><tw-passagedata pid="6" name="Run" tags="" position="967,1053">(if: (random: 1, 100) &lt;= ($monster&#x27;s fleeChance + $fleeBonus))[You outrun the creature. (set: $energy to it - 5)
+</tw-passagedata><tw-passagedata pid="6" name="Run" tags="" position="967,1053">(if: (random: 1, 100) &lt;= ($monster&#x27;s fleeChance + $fleeBonus))[You escaped. (set: $energy to it - 5)
 
 [[Onwards!|Main]]]\
-(else:)[You only make it a short distance before the creature catches up.(set: $energy to it - 5)(set: $HP to it - ($monster&#x27;s damage))
+(else:)[Your attempt to flee is unsuccesful.(set: $energy to it - 5)(set: $HP to it - ($monster&#x27;s damage))
 
 [[Limp on.|Main]]]</tw-passagedata><tw-passagedata pid="7" name="Pat" tags="" position="756,1063">There is a moment of soft cuddly contentment. This is followed by several moments of searing pain as its claws rend your flesh.
 (set: $HP to it - $monster&#x27;s damage)(set: $sanity to it + 5)\
@@ -305,7 +307,7 @@ $turns minutes]]\
 
 (set: $monster to (datamap: &quot;fleeChance&quot;, 50, &quot;damage&quot;, 15, &quot;bonus&quot;, &quot;Try to bat it away&quot;))\
 (display: &quot;monster&quot;)]\
-(else:)[Carnivorous pigeons stare at you from the rafters. They cock their heads and look at you through red eyes. Do not imagine that you can escape them.
+(else:)[Carnivorous pigeons stare at you from the rafters. They cock their heads and look at you through red eyes.
 
 (set: $monster to (datamap: &quot;fleeChance&quot;, 30, &quot;damage&quot;, 18, &quot;bonus&quot;, &quot;Feed them&quot;))\
 (display: &quot;monster&quot;)]</tw-passagedata><tw-passagedata pid="9" name="poop" tags="" position="927,784">You enter a small tiled bathroom. The walls are smeared with something brown.
@@ -799,6 +801,7 @@ The right message reads: +(print: $door&#x27;s 3rd) (print: $playerVariables&#x2
 [[Onwards.|Main]]]</tw-passagedata><tw-passagedata pid="89" name="Photocopy the treatise on the treachery of crabs" tags="" position="777,2027">You will spread the word.
 
 (set: $sanity to it - 11)\
+(set: $delayExecute to false)\
 (set: $inventory to it + (array: &quot;photocopies&quot;))\
 [[Onwards!|Main]]</tw-passagedata><tw-passagedata pid="90" name="Knock the shrine over" tags="" position="1085,1579">You upend the shrine before you leave the room. The statue shatters when it hits the ground.
 
@@ -875,8 +878,7 @@ A treasure chest squats on the dungeon floor. It is decorated with a carving of 
 (set: $sanity to it - 5)\
 (if: $testIslandKey is 0)[(if: $inventory contains &quot;crabNote&quot;)[[[Show him the treatise on the treachery of crabs]]
 ]\
-(if: $inventory contains &quot;photocopies&quot;)[[[Show him your photocopies of the treatise]]]\
-]\
+(if: $inventory contains &quot;photocopies&quot;)[[[Show him your photocopies of the treatise]]]]
 [[Leave this place|Main]]</tw-passagedata><tw-passagedata pid="104" name="Talk to the hungry-looking one" tags="" position="2157,504">He has a plump waistline but is raving about watermelons and an unsateable hunger. Listening to him makes your stomach growl.
 
 (set: $satiety to it - 15)\
@@ -1089,7 +1091,7 @@ $x[Make a poor decision.]
 $x[Make a bright decision.]
 
 =&gt;&lt;=
-[[Begin again]]</tw-passagedata><tw-passagedata pid="134" name="Header" tags="header" position="250,82">{
+[[Begin again|init]]</tw-passagedata><tw-passagedata pid="134" name="Header" tags="header" position="250,82">{
 (print: &quot;&lt;script&gt;$(&#x27;html&#x27;).removeClass(\)&lt;/script&gt;&quot;)
 (if: (passage:)&#x27;s tags&#x27;s length &gt; 0)[
 (print: &quot;&lt;script&gt;$(&#x27;html&#x27;).addClass(&#x27;&quot; + (passage:)&#x27;s tags.join(&#x27; &#x27;) + &quot;&#x27;\)&lt;/script&gt;&quot;)
