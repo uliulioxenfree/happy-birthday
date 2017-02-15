@@ -214,7 +214,7 @@ tw-link:hover, enchantment-link:hover /* sets both hover link colors */
 (else:)[(set: $card to $cards&#x27;s 1st)]\
 	(display: $card)
 	
-	(if: $dice is 1 and $diceCooldown is 0 and (random: 1, 5) &gt;= 4)[
+	(if: $dice is 1 and $diceCooldown is 0 and (random: 1, 5) &gt;= 4 and not ($card is &quot;Blessed&quot;))[
 	*Or you could [[reroll the dice|dice]]*
 	]\
 	(if: $trash &gt;0 and not($card is &quot;couch&quot;) and not($card is &quot;peckishCure&quot;) and not($card is &quot;debugMenagerie&quot;) and not ($card is &quot;exit&quot;) and not ($card is &quot;findKey&quot;) and not ($card is &quot;pirates&quot;))[*Or you could [[remove this location from the dungeon]]*
@@ -295,7 +295,7 @@ $turns minutes]]\
 ]\
 (if: $ghostFriend &gt;=4 and $HP &gt;50)[[[Grant a request|Accept a request]]
 ]\
-</tw-passagedata><tw-passagedata pid="6" name="Run" tags="" position="967,1053">(if: (random: 1, 100) &lt;= ($monster&#x27;s fleeChance + $fleeBonus))[You escaped. (set: $energy to it - 5)
+</tw-passagedata><tw-passagedata pid="6" name="Run" tags="" position="967,1053">(if: (random: 1, 100) &lt;= ($monster&#x27;s fleeChance + $fleeBonus))[You escape. (set: $energy to it - 5)
 
 [[Onwards!|Main]]]\
 (else:)[Your attempt to flee was unsuccesful; you made it only a short distance before being mauled.
@@ -311,7 +311,7 @@ You are tired *and* injured now.(set: $energy to it - 5)(set: $HP to it - ($mons
 (display: &quot;monster&quot;)]\
 (else:)[Carnivorous pigeons stare at you from the rafters. They cock their heads and look at you through red eyes.
 
-(set: $monster to (datamap: &quot;fleeChance&quot;, 30, &quot;damage&quot;, 18, &quot;bonus&quot;, &quot;Feed them&quot;))\
+(set: $monster to (datamap: &quot;fleeChance&quot;, 30, &quot;damage&quot;, 18, &quot;bonus&quot;, &quot;Feed them&quot;, &quot;type&quot;, &quot;pigeons&quot;))\
 (display: &quot;monster&quot;)]</tw-passagedata><tw-passagedata pid="9" name="poop" tags="" position="927,784">You enter a small tiled bathroom. The walls are smeared with something brown.
 
 (set: $delayExecute to &quot;(set: $sanity to it - (random:10,15))&quot;)\
@@ -504,6 +504,7 @@ He pauses. A droplet of water falls from his nose and splashes into the puddle a
 (set: $gift to (shuffled: ...$gift))\
 (print: 1st of $gift)
 (print: 2nd of $gift)
+
 (print: 3rd of $gift)(if: $inventory contains &quot;photocopies&quot;)[
 [[Hand the gift-giver a photocopy of the Treatise on the Treachery of Crabs|Share the treatise]]]</tw-passagedata><tw-passagedata pid="41" name="The gift of health" tags="" position="385,1790">You receive a box of (either: &quot;dinosaur&quot;,&quot;space&quot;,&quot;pirate&quot;)-themed bandaids. These will come in handy.
 
@@ -947,11 +948,9 @@ Happy birthday!
 
 (if: $slimeEnemy is 1)[This time, however, they are skittish; they look at you sideways and whisper furtively among themselves. They must have heard about your crimes against slimes at previous tea ceremonies.
 
-The experience is deeply uncomfortable.
+It&#x27;s discomfiting. 
 
-(set: $s to (live: 1.2s))\
-(live: 1.2s)[(set: $sanity to it - 1)\
-(if: $sanity &lt;1)[(stop:)]]\
+(live: 1.5s)[(set: $sanity to it - 1)(replace: ?Sanity)[(color: orange)[$sanity]]]\
 (if: not ($achievements contains &quot;Experience an awkward situation&quot;))[(set: $achievements to it + (array: &quot;Experience an awkward situation&quot;))]]\
 [[Drink the tea]]
 [[Eat the snacks]]
@@ -1035,7 +1034,8 @@ It makes a sad noise as you leave.
 (set: $scanner to it - 1)\
 (set: $ally to (datamap: &quot;type&quot;, &quot;pigeons&quot;, &quot;health&quot;, 100))\
 (set: $cards to it + (array: &quot;pigeons&quot;))\
-[[Onwards!|Main]]]</tw-passagedata><tw-passagedata pid="131" name="Ask your pigeons to attack" tags="" position="1217,1061">(set: $ally&#x27;s health to it - (random: 10,($monster&#x27;s damage * 3)))\
+[[Onwards!|Main]]]</tw-passagedata><tw-passagedata pid="131" name="Ask your pigeons to attack" tags="" position="1217,1061">(if: $monster&#x27;s type is &quot;pigeons&quot; and not ($achievements contains &quot;Defeat pigeons using pigeons&quot;))[(set: $achievements to it + (array: &quot;Defeat pigeons using pigeons&quot;))]\
+(set: $ally&#x27;s health to it - (random: 10,($monster&#x27;s damage * 3)))\
 (if: $ally&#x27;s health &lt; 0)[The pigeons battle valiantly, and even manage to defeat the foe. But there are no survivors.
 
 (set: $ally&#x27;s type to &quot;dead&quot;)\
@@ -1081,6 +1081,8 @@ $x[Defend mankind.]
 $x[Be a friend.]
 (if: $achievements contains &quot;Feed your pets&quot;)[(set: $x to (color: yellow))](else:)[(set: $x to (color: #818181))]
 $x[Feed your pets.]
+(if: $achievements contains &quot;Defeat pigeons using pigeons&quot;)[(set: $x to (color: yellow))](else:)[(set: $x to (color: #818181))]
+$x[Defeat pigeons using pigeons.]
 (if: $achievements contains &quot;Meet Wesley J Skelliman&quot;)[(set: $x to (color: yellow))](else:)[(set: $x to (color: #818181))]
 $x[Meet Wesley J Skelliman.]
 (if: $achievements contains &quot;Be still for a little while&quot;)[(set: $x to (color: yellow))](else:)[(set: $x to (color: #818181))]
@@ -1102,7 +1104,8 @@ $x[Make a bright decision.]
 
 (set: $monster to (datamap: &quot;fleeChance&quot;, 15, &quot;damage&quot;, 25, &quot;bonus&quot;, &quot;Steal the key&quot;))\
 (display: &quot;monster&quot;)]\
-(else:)[It looks angrier than ever since you stole its key.
+(else:)[
+It looks angrier than ever since you stole its key.
 (set: $monster to (datamap: &quot;fleeChance&quot;, 15, &quot;damage&quot;, 25, &quot;bonus&quot;, &quot;Let it look you in the eyes&quot;))\
 (display: &quot;monster&quot;)]</tw-passagedata><tw-passagedata pid="136" name="Steal the key" tags="" position="1404,805">Are you sure that you want to do this? You are unlikely to emerge unscathed.
 
@@ -1177,7 +1180,7 @@ When you wake you find a note thanking you for your donation and a key placed on
 (set: $drink to it + 1)\
 [[Onwards!|Main]]</tw-passagedata><tw-passagedata pid="151" name="peckish" tags="" position="407,673">(go-to: &quot;peckish2&quot;)</tw-passagedata><tw-passagedata pid="152" name="Let it look you in the eyes" tags="" position="1393,695">Its eyes are hard, and presently so too is your skin.
 
-[[You are a statue]]</tw-passagedata><tw-passagedata pid="153" name="Refuse" tags="" position="1642,2168">Your carnivorous flappy friends leave. You never see them again.
+[[You are a statue]]</tw-passagedata><tw-passagedata pid="153" name="Refuse" tags="" position="1642,2168">Yourflappy carnivorous friends fly away. You may never see them again.
 
 (set: $ally&#x27;s type to &quot;gone&quot;)\
 [[Onwards!|Main]]</tw-passagedata><tw-passagedata pid="154" name="keyFind" tags="" position="1648,1728">You find a key on the dungeon floor! What are the odds? (The odds are 1 in 180.)
@@ -1197,6 +1200,7 @@ When you wake you find a note thanking you for your donation and a key placed on
 (set: $dice to 1)\
 (set: $hunger to 2)\
 (set: $keys to 5)\
+(set: $slimeEnemy to 1)\
 (set: $turns to 20)\
 (set: $blessings to it + (array: &quot;laughter&quot;, &quot;sacrifice&quot;))</tw-passagedata><tw-passagedata pid="157" name="Eat the note" tags="" position="1099,2051">You feel much better now that you&#x27;ve put these things out of your mind and in to your stomach.
 
@@ -1209,7 +1213,7 @@ When you wake you find a note thanking you for your donation and a key placed on
 
 &quot;Or any watermelon?&quot; he adds hopefully.
 
-[[Leave him|Main]]</tw-passagedata><tw-passagedata pid="159" name="sergeGuide" tags="" position="804,1466">A strange man enters the room. He is carrying a a jar full of bugs and smells faintly of bacon.
+[[Leave him|Main]]</tw-passagedata><tw-passagedata pid="159" name="sergeGuide" tags="" position="804,1466">A strange man enters the room. He is carrying a jar full of bugs and smells faintly of bacon.
 
 &#x27;I&#x27;ve survived in this dungeon longer than most&#x27;, he says, &#x27;and I know the way to the exit. Want me to take you?&#x27;
 
