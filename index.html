@@ -113,7 +113,11 @@ tw-link:hover, enchantment-link:hover /* sets both hover link colors */
 
 
 
+
+
 </style><script role="script" id="twine-user-script" type="text/twine-javascript">
+
+
 
 
 
@@ -504,9 +508,9 @@ He pauses. A droplet of water falls from his nose and splashes into the puddle a
 (set: $gift to (shuffled: ...$gift))\
 (print: 1st of $gift)
 (print: 2nd of $gift)
+(print: 3rd of $gift)
 
-(print: 3rd of $gift)(if: $inventory contains &quot;photocopies&quot;)[
-[[Hand the gift-giver a photocopy of the Treatise on the Treachery of Crabs|Share the treatise]]]</tw-passagedata><tw-passagedata pid="41" name="The gift of health" tags="" position="385,1790">You receive a box of (either: &quot;dinosaur&quot;,&quot;space&quot;,&quot;pirate&quot;)-themed bandaids. These will come in handy.
+(if: $inventory contains &quot;photocopies&quot;)[[[Hand the gift-giver a photocopy of the Treatise on the Treachery of Crabs|Share the treatise]]]</tw-passagedata><tw-passagedata pid="41" name="The gift of health" tags="" position="385,1790">You receive a box of (either: &quot;dinosaur&quot;,&quot;space&quot;,&quot;pirate&quot;)-themed bandaids. These will come in handy.
 
 (set: $HP to it + 35)\
 [[Onwards!|Main]]</tw-passagedata><tw-passagedata pid="42" name="The gift of lucidity" tags="" position="510,1790">The box is empty, but it comes accompanied by a loving card. Reading it makes you feel safe and calm.
@@ -718,7 +722,8 @@ It is titled *A Treatise on the Treachery of Crabs.* The handwriting is neat but
 (else:)[(set: $satiety to it - $hunger)]\
 (if: $delayExecute is not false)[$delayExecute (set: $delayExecute to false)]\
 (set: $s to (color: #818181))\
-(if: $blessings contains &quot;regeneration&quot; and $energy &lt; (random: 10,100))[(set: $energy to it + (random:0,1))]\
+(if: $blessings contains &quot;endurance&quot; and $energy &lt; 10)[(set: $HP to it - 1)(set: $sanity to it - 1)]\
+(if: $blessings contains &quot;endurance&quot; and $energy &lt; 1)[(set: $energy to 1)]\
 (if: $blessings contains &quot;mindfulness&quot; and $sanity &lt; 33)[(set: $sanity to it + (random:1,3))]\
 (if: $turns is 15)[(set: $cards to it + (array: &quot;photocopier&quot;, &quot;crabs&quot;))]\
 (if: $turns is 20)[(set: $cards to it + (array: &quot;Tea Ceremony&quot;,&quot;monsters2&quot;))]\
@@ -834,7 +839,7 @@ You pocket the key. This could come in handy later.
 [[Onwards!|Main]]</tw-passagedata><tw-passagedata pid="94" name="blessings2" tags="blessings" position="1586,169">Choose a blessing!
 (set: $nextBlessing to $turns + 12 + (ceil: $turns/7))\
 (set: $cards to it - (array: &quot;blessings&quot;))\
-(set: $availableBlessings to (shuffled:... (array: &quot;fitness&quot;, &quot;mindfulness&quot;, &quot;speed&quot;, &quot;gluttony&quot;, &quot;blessedness&quot;, &quot;digestion&quot;, &quot;discovery&quot;, &quot;laughter&quot;, &quot;opening&quot;, &quot;regeneration&quot;, &quot;acquisition&quot;, &quot;sacrifice&quot;) - $blessings))
+(set: $availableBlessings to (shuffled:... (array: &quot;fitness&quot;, &quot;mindfulness&quot;, &quot;speed&quot;, &quot;gluttony&quot;, &quot;blessedness&quot;, &quot;digestion&quot;, &quot;discovery&quot;, &quot;laughter&quot;, &quot;opening&quot;, &quot;endurance&quot;, &quot;acquisition&quot;, &quot;sacrifice&quot;) - $blessings))
 [[Blessing of (print: $availableBlessings&#x27;s 1st)]]
 [[Blessing of (print: $availableBlessings&#x27;s 2nd)]]
 (if: $blessings contains &quot;blessedness&quot;)[[[Blessing of (print: $availableBlessings&#x27;s 3rd)]]]</tw-passagedata><tw-passagedata pid="95" name="Blessing of fitness" tags="blessings" position="1711,169">Gain some HP when you expend energy.
@@ -1156,9 +1161,9 @@ When you wake you find a note thanking you for your donation and a key placed on
 (set: $keys to it + 1)\
 *You now have $keys keys*
 
-[[Onwards!|Main]]</tw-passagedata><tw-passagedata pid="143" name="Blessing of regeneration" tags="blessings" position="1836,169">Your energy will sometimes regenerate, especially as it gets low.
+[[Onwards!|Main]]</tw-passagedata><tw-passagedata pid="143" name="Blessing of endurance" tags="blessings" position="1836,169">You will never run out of energy. However, your health and sanity will degrade if your energy is below 10.
 
-(set: $blessings to it + (array: &quot;regeneration&quot;))\
+(set: $blessings to it + (array: &quot;endurance&quot;))\
 (set: $HPgain to 1)\
 [[Onwards!|Main]]</tw-passagedata><tw-passagedata pid="144" name="pigeons" tags="" position="1408,2045">The pigeons eye you hungrily and coo conspiratorially.
 
