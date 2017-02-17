@@ -11,7 +11,7 @@
 
 <tw-story></tw-story>
 
-<tw-storydata name="Birthday Dungeon Final" startnode="1" creator="Twine" creator-version="2.1.0" ifid="369C1ECA-B407-407D-B348-4BBFFD2528C3" format="Harlowe" format-version="1.2.3" options="" hidden><style role="stylesheet" id="twine-user-stylesheet" type="text/twine-css">html.demon {
+<tw-storydata name="Birthday Dungeon Final" startnode="163" creator="Twine" creator-version="2.1.0" ifid="369C1ECA-B407-407D-B348-4BBFFD2528C3" format="Harlowe" format-version="1.2.3" options="" hidden><style role="stylesheet" id="twine-user-stylesheet" type="text/twine-css">html.demon {
 	background-color: #b30000;
   color: #ffffff;
 }
@@ -304,7 +304,7 @@ $turns minutes]]\
 [[Onwards!|Main]]]\
 (else:)[Your attempt to flee was unsuccesful; you made it only a short distance before being mauled.
 
-You are tired *and* injured now.(set: $energy to it - 5)(set: $HP to it - ($monster&#x27;s damage))
+You are now tired *and* injured.(set: $energy to it - 5)(set: $HP to it - ($monster&#x27;s damage))
 
 [[Limp on.|Main]]]</tw-passagedata><tw-passagedata pid="7" name="Pat" tags="" position="756,1063">There is a moment of soft cuddly contentment. This is followed by several moments of searing pain as its claws rend your flesh.
 (set: $HP to it - $monster&#x27;s damage)(set: $sanity to it + 5)\
@@ -435,7 +435,7 @@ You slam the book shut. What have you unleashed?
 (else:)[You sacrifice some sanity but are rewarded in other ways.
 
 (set: $sanity to it - 10)\
-(set: $HP to it + (random:10,15))\
+(set: $HP to it + 10)\
 [[Onwards!|Main]]]</tw-passagedata><tw-passagedata pid="30" name="Move on" tags="" position="1087,1204">You could swear that you feel the statue&#x27;s eyes following you as you walk away.
 
 (set: $sanity to it - 5)\
@@ -584,7 +584,7 @@ He pauses. A droplet of water falls from his nose and splashes into the puddle a
 
 A couch is in the middle of the room. It looks comfortably plush. 
 
-*Careful! You are seeing this because your energy is getting low*
+*Careful! Your energy is getting low*
 
 (set: $delayExecute to &quot;(set: $energy to it - 10)&quot;)\
 [[Rest a while]]
@@ -735,13 +735,13 @@ It is titled *A Treatise on the Treachery of Crabs.* The handwriting is neat but
 (if: $turns is 60)[(set: $cards to it + (array: &quot;Gorgon&quot;))]\
 (if: $turns is 50)[(set: $cards to it + (array: &quot;exit&quot;))]\
 (if: $turns is 40)[(set: $cards to it + (array: &quot;Skeleton&quot;))]\
-(if: $sanity &lt;=25 and not ($cards contains &quot;debugMenagerie&quot;))[(set: $cards to it + (array: &quot;debugMenagerie&quot;, &quot;debugMenagerie&quot;))]\
+(if: $sanity &lt;25 and not ($cards contains &quot;debugMenagerie&quot;))[(set: $cards to it + (array: &quot;debugMenagerie&quot;, &quot;debugMenagerie&quot;))]\
 (if: $keys &gt;=5 and $sergeGuide is 1 and (random: 1,4) is 4)[(set: $cards to it + (array: &quot;sergeGuide&quot;))]\
-(if: $sanity &gt;25)[(set: $cards to it - (array: &quot;debugMenagerie&quot;))]\
+(if: $sanity &gt;=25)[(set: $cards to it - (array: &quot;debugMenagerie&quot;))]\
 (if: (random:1,180) is 1)[(set: $cards to it + (array: &quot;pirates&quot;))]\
 (if: (random:1,170) is 170)[(set: $cards to it + (array: &quot;keyFind&quot;))]\
-(if: $energy &lt;=25 and not ($cards contains &quot;couch&quot;))[(set: $cards to it + (array: &quot;couch&quot;))]\
-(if: $energy &gt; 25)[(set: $cards to it - (array: &quot;couch&quot;))]\
+(if: $energy &lt;25 and not ($cards contains &quot;couch&quot;))[(set: $cards to it + (array: &quot;couch&quot;))]\
+(if: $energy &gt;= 25)[(set: $cards to it - (array: &quot;couch&quot;))]\
 (if: $turns &gt;= $nextBlessing)[(set: $cards to it + (array: &quot;blessings&quot;))]\
 (if: $turns &gt; 5 and not ($achievements contains &quot;Survive five minutes&quot;))[(set: $achievements to it + (array: &quot;Survive five minutes&quot;))]\
 (if: $turns &gt; 60 and not ($achievements contains &quot;Survive an hour&quot;))[(set: $achievements to it + (array: &quot;Survive an hour&quot;))]\
@@ -887,13 +887,14 @@ A treasure chest squats on the dungeon floor. It is decorated with a carving of 
 [[Talk to the hungry-looking one]] *(this will substantially reduce your satiety)*</tw-passagedata><tw-passagedata pid="103" name="Talk to the haunted-looking one" tags="" position="2007,503">(if: $testIslandKey is 1)[He pauses his muttering to nod hello. His eyes are bloodshot and unsettling.
 
 (set: $sanity to it - 5)\
-[[Leave this place.|Main]]](else:)[He mutters something urgent but indistinct about crabs. More disturbing than his words are his eyes; they are bloodshot and unfocused.]
+[[Leave this place.|Main]]]\
+(else:)[He mutters something urgent but indistinct about crabs. More disturbing than his words are his eyes; they are bloodshot and unfocused.
 
 (set: $sanity to it - 5)\
 (if: $testIslandKey is 0)[(if: $inventory contains &quot;crabNote&quot;)[[[Show him the treatise on the treachery of crabs]]
 ]\
 (if: $inventory contains &quot;photocopies&quot;)[[[Show him your photocopies of the treatise]]]]
-[[Leave this place|Main]]</tw-passagedata><tw-passagedata pid="104" name="Talk to the hungry-looking one" tags="" position="2157,504">He has a plump waistline but is raving about watermelons and an unsateable hunger. Listening to him makes your stomach growl.
+[[Leave this place|Main]]]</tw-passagedata><tw-passagedata pid="104" name="Talk to the hungry-looking one" tags="" position="2157,504">He has a plump waistline but is raving about watermelons and an unsateable hunger. Listening to him makes your stomach growl.
 
 (set: $satiety to it - 15)\
 [[Leave this place|Main]]
@@ -1245,7 +1246,8 @@ When you wake you find a note thanking you for your donation and a key placed on
 [[Delicious.|exit]]</tw-passagedata><tw-passagedata pid="162" name="You have **$keys** keys]&lt;keyCount|" tags="" position="0,236">Double-click this passage to edit it.</tw-passagedata><tw-passagedata pid="163" name="trueInit" tags="" position="625.9454521544907,579.2454511557336">(if: (saved-games:) contains &quot;Slot A&quot;)[Save file found.
 
 (link: &quot;Restore progress&quot;)[(load-game: &quot;Slot A&quot;)]
-[[Begin again|init]]]</tw-passagedata></tw-storydata>
+[[Begin again|init]]]
+(else:)[(go-to: &quot;init&quot;)]</tw-passagedata></tw-storydata>
 
 <script title="Twine engine code" data-main="harlowe">"use strict";function _toConsumableArray(e){if(Array.isArray(e)){for(var t=0,n=Array(e.length);t<e.length;t++)n[t]=e[t];return n}return Array.from(e)}var _slicedToArray=function(){function e(e,t){var n=[],r=!0,o=!1,i=void 0;try{for(var a,s=e[Symbol.iterator]();!(r=(a=s.next()).done)&&(n.push(a.value),!t||n.length!==t);r=!0);}catch(e){o=!0,i=e}finally{try{!r&&s.return&&s.return()}finally{if(o)throw i}}return n}return function(t,n){if(Array.isArray(t))return t;if(Symbol.iterator in Object(t))return e(t,n);throw new TypeError("Invalid attempt to destructure non-iterable instance")}}(),_typeof="function"==typeof Symbol&&"symbol"==typeof Symbol.iterator?function(e){return typeof e}:function(e){return e&&"function"==typeof Symbol&&e.constructor===Symbol?"symbol":typeof e};!function(){/**
  * @license almond 0.3.3 Copyright jQuery Foundation and other contributors.
