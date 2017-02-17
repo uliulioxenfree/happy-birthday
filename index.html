@@ -74,8 +74,8 @@ html.watermelon tw-link {
 
 tw-passage tw-include[title="Sidebar"] tw-link{
   	color: #818181;
-		font-size: 80%; 
-		font-weight: normal;
+	font-size: 80%; 
+	font-weight: normal;
 }
 
 tw-link, enchantment-link /* sets both base link colors */
@@ -473,12 +473,16 @@ By the time it finishes you feel healthier, though also horrified.
 (set: $delayExecute to &quot;(set: $HP to 30)(set: $energy to 30)(set: $satiety to 30)(set: $sanity to 30)&quot;)\
 (if: not ($achievements contains &quot;Come back from the dead&quot;))[(set: $achievements to it + (array: &quot;Come back from the dead&quot;))]\
 [[Give up your ankh to return to the dungeon|Main]]]\
-(else:)[[[View achievements|Achievements]]
+(else:)[(link:&quot;Save progress&quot;)[(if:(save-game:&quot;Slot A&quot;))[&#x27;&#x27;Progress saved!&#x27;&#x27;]\
+(else: )[Sorry, I couldn&#x27;t save your game.]]
+[[View achievements|Achievements]]
 [[Begin again|init]]]</tw-passagedata><tw-passagedata pid="36" name="You are insane" tags="" position="1,1249">Your body may still be alive, but whatever you once understood yourself to be is gone.
 
 Happy birthday.
 
 (set: $ended to true)\
+(link:&quot;Save progress&quot;)[(if:(save-game:&quot;Slot A&quot;))[&#x27;&#x27;Progress saved!&#x27;&#x27;]\
+(else: )[Sorry, I couldn&#x27;t save your game.]]
 [[View achievements|Achievements]]
 [[Begin again|init]]</tw-passagedata><tw-passagedata pid="37" name="peckishCure" tags="" position="1690,585">A damp mime lurks in the corner of the room. He gestures for you to come closer.
 
@@ -754,6 +758,7 @@ It is titled *A Treatise on the Treachery of Crabs.* The handwriting is neat but
 *Careful! Your sanity is getting perilously low*
 
 (set: $delayExecute to &quot;(set: $energy to it - 12)&quot;)\
+(set: $s to (text-style: &quot;upside-down&quot;))\
 [[Stare at the photocopier]]
 [[Photocopy your eyes]]
 [[Run away as fast as you can|Main]]]\
@@ -877,6 +882,7 @@ A treasure chest squats on the dungeon floor. It is decorated with a carving of 
 
 *You can only find the debugMenagerie when your sanity is perilously low.*
 
+(set: $s to (text-style: &quot;upside-down&quot;))\
 [[Talk to the haunted-looking one]] *(this will slightly reduce your sanity)*
 [[Talk to the hungry-looking one]] *(this will substantially reduce your satiety)*</tw-passagedata><tw-passagedata pid="103" name="Talk to the haunted-looking one" tags="" position="2007,503">(if: $testIslandKey is 1)[He pauses his muttering to nod hello. His eyes are bloodshot and unsettling.
 
@@ -934,6 +940,8 @@ There is an unattended snack stand next to the exit.
 Happy birthday!
 
 (if: not ($achievements contains &quot;Escape&quot;))[(set: $achievements to it + (array: &quot;Escape&quot;))]\
+(link:&quot;Save progress&quot;)[(if:(save-game:&quot;Slot A&quot;))[&#x27;&#x27;Progress saved!&#x27;&#x27;]\
+(else: )[Sorry, I couldn&#x27;t save your game.]]
 [[Achievements]]</tw-passagedata><tw-passagedata pid="113" name="Blessing of digestion" tags="blessings" position="1462,294">Your satiety only sometimes degenerates.
 
 (set: $blessings to it + (array: &quot;digestion&quot;))\
@@ -1039,7 +1047,7 @@ It makes a sad noise as you leave.
 (set: $scanner to it - 1)\
 (set: $ally to (datamap: &quot;type&quot;, &quot;pigeons&quot;, &quot;health&quot;, 100))\
 (set: $cards to it + (array: &quot;pigeons&quot;))\
-[[Onwards!|Main]]]</tw-passagedata><tw-passagedata pid="131" name="Ask your pigeons to attack" tags="" position="1217,1061">(if: $monster&#x27;s type is &quot;pigeons&quot; and not ($achievements contains &quot;Defeat pigeons using pigeons&quot;))[(set: $achievements to it + (array: &quot;Defeat pigeons using pigeons&quot;))]\
+[[Onwards!|Main]]]</tw-passagedata><tw-passagedata pid="131" name="Ask your pigeons to attack" tags="" position="1217,1061">(if: $monster&#x27;s type is &quot;pigeons&quot; and not ($achievements contains &quot;Fight pigeons with pigeons&quot;))[(set: $achievements to it + (array: &quot;Fight pigeons with pigeons&quot;))]\
 (set: $ally&#x27;s health to it - (random: 10,($monster&#x27;s damage * 3)))\
 (if: $ally&#x27;s health &lt; 0)[The pigeons battle valiantly, and even manage to defeat the foe. But there are no survivors.
 
@@ -1086,7 +1094,7 @@ $x[Defend mankind.]
 $x[Be a friend.]
 (if: $achievements contains &quot;Feed your pets&quot;)[(set: $x to (color: yellow))](else:)[(set: $x to (color: #818181))]
 $x[Feed your pets.]
-(if: $achievements contains &quot;Defeat pigeons using pigeons&quot;)[(set: $x to (color: yellow))](else:)[(set: $x to (color: #818181))]
+(if: $achievements contains &quot;Fight pigeons with pigeons&quot;)[(set: $x to (color: yellow))](else:)[(set: $x to (color: #818181))]
 $x[Defeat pigeons using pigeons.]
 (if: $achievements contains &quot;Meet Wesley J Skelliman&quot;)[(set: $x to (color: yellow))](else:)[(set: $x to (color: #818181))]
 $x[Meet Wesley J Skelliman.]
@@ -1234,7 +1242,10 @@ When you wake you find a note thanking you for your donation and a key placed on
 </tw-passagedata><tw-passagedata pid="161" name="Eat his hand" tags="" position="649,1676">You override his objections. After all, this might be the last time you get to do something like this.
 
 (set: $satiety to it + 5)\
-[[Delicious.|exit]]</tw-passagedata><tw-passagedata pid="162" name="You have **$keys** keys]&lt;keyCount|" tags="" position="0,236">Double-click this passage to edit it.</tw-passagedata></tw-storydata>
+[[Delicious.|exit]]</tw-passagedata><tw-passagedata pid="162" name="You have **$keys** keys]&lt;keyCount|" tags="" position="0,236">Double-click this passage to edit it.</tw-passagedata><tw-passagedata pid="163" name="trueInit" tags="" position="625.9454521544907,579.2454511557336">(if: (saved-games:) contains &quot;Slot A&quot;)[Save file found.
+
+(link: &quot;Restore progress&quot;)[(load-game: &quot;Slot A&quot;)]
+[[Begin again|init]]]</tw-passagedata></tw-storydata>
 
 <script title="Twine engine code" data-main="harlowe">"use strict";function _toConsumableArray(e){if(Array.isArray(e)){for(var t=0,n=Array(e.length);t<e.length;t++)n[t]=e[t];return n}return Array.from(e)}var _slicedToArray=function(){function e(e,t){var n=[],r=!0,o=!1,i=void 0;try{for(var a,s=e[Symbol.iterator]();!(r=(a=s.next()).done)&&(n.push(a.value),!t||n.length!==t);r=!0);}catch(e){o=!0,i=e}finally{try{!r&&s.return&&s.return()}finally{if(o)throw i}}return n}return function(t,n){if(Array.isArray(t))return t;if(Symbol.iterator in Object(t))return e(t,n);throw new TypeError("Invalid attempt to destructure non-iterable instance")}}(),_typeof="function"==typeof Symbol&&"symbol"==typeof Symbol.iterator?function(e){return typeof e}:function(e){return e&&"function"==typeof Symbol&&e.constructor===Symbol?"symbol":typeof e};!function(){/**
  * @license almond 0.3.3 Copyright jQuery Foundation and other contributors.
