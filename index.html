@@ -124,7 +124,11 @@ tw-link:hover, enchantment-link:hover /* sets both hover link colors */
 
 
 
+
+
 </style><script role="script" id="twine-user-script" type="text/twine-javascript">
+
+
 
 
 
@@ -781,7 +785,7 @@ It is titled *A Treatise on the Treachery of Crabs.* The handwriting is neat but
 (if: (random:1,175) is 1)[(set: $cards to it + (array: &quot;pirates&quot;))]\
 (if: (random:1,175) is 2)[(set: $cards to it + (array: &quot;keyFind&quot;))]\
 (if: (random:1,175) is 3)[(set: $cards to it + (array: &quot;jargo&quot;))]\
-(if: $keys &gt;=1 and (random:1,50) is 50 and not ($inventory contains &quot;headband&quot;))[(set: $cards to it + (array: &quot;headband&quot;))]\
+(if: $keys &gt;=1 and (random:1,150) is 150 and not ($inventory contains &quot;headband&quot;))[(set: $cards to it + (array: &quot;headband&quot;))]\
 (if: $energy &lt;25 and not ($cards contains &quot;couch&quot;))[(set: $cards to it + (array: &quot;couch&quot;))]\
 (if: $energy &gt;= 25)[(set: $cards to it - (array: &quot;couch&quot;))]\
 (if: $turns &gt;= $nextBlessing)[(set: $cards to it + (array: &quot;blessings&quot;))]\
@@ -1458,7 +1462,7 @@ You have the sense that something important is inscribed here. If only you could
 (set: $energy to it - 20)\
 *You now have (print: $inklings) Inklings of an Unfathomable Truth.*
 
-[[Onwards!|Main]]</tw-passagedata><tw-passagedata pid="194" name="lockedChest" tags="" position="597,2418.3363081902135">You find a locked treasure chest. You have a key that would fit perfectly.
+[[Onwards!|Main]]</tw-passagedata><tw-passagedata pid="194" name="lockedChest" tags="" position="597,2418">You find a locked treasure chest. You have a key that would fit perfectly.
 
 (set: $gift to (array: &quot;[[Average juice]]&quot;,&quot;[[Dynamite]]&quot;,&quot;[[Breadcrumbs]]&quot;,&quot;[[Key]]&quot;))\
 (if: $ankh is 0)[(set: $gift to it + (array: &quot;[[A metal cross with a handle]]&quot;))]\
@@ -1478,15 +1482,15 @@ You have the sense that something important is inscribed here. If only you could
 (if: $HP &lt;1)[(go-to: &quot;You are dead&quot;)]\
 (if: $satiety &lt;1)[(go-to: &quot;You are dead&quot;)]\
 (if: $sanity &lt;1)[(go-to: &quot;You are insane&quot;)]\
-[[Go further.|Descend.]]</tw-passagedata><tw-passagedata pid="197" name="descendEnergy" tags="" position="3231,1586.6636052508404">(either: &quot;You go down yet another flight of stairs. How much longer can you keep this up?&quot;, &quot;There&#x27;s a stitch in your chest. You push through it.&quot;)
+[[Go further.|Descend.]]</tw-passagedata><tw-passagedata pid="197" name="descendEnergy" tags="" position="3231,1586">(either: &quot;You go down yet another flight of stairs. How much longer can you keep this up?&quot;, &quot;There&#x27;s a stitch in your chest. You push through it.&quot;)
 
-(set: $energy to it - (random: 1,5))</tw-passagedata><tw-passagedata pid="198" name="descendHealth" tags="" position="3232,1475.6636052508404">(either: &quot;Your heart pounds. Your ears ring. Your feet ache.&quot;, &quot;Your heart pounds. Your ears ring. Your feet ache.&quot;, &quot;There&#x27;s a sudden cramping pain in your left leg. Did you strain your quadriceps?&quot;, &quot;There&#x27;s a sudden cramping pain in your right leg. Did you strain your quadriceps?&quot;)
+(set: $energy to it - (random: 1,5))</tw-passagedata><tw-passagedata pid="198" name="descendHealth" tags="" position="3232,1475">(either: &quot;Your heart pounds. Your ears ring. Your feet ache.&quot;, &quot;Your heart pounds. Your ears ring. Your feet ache.&quot;, &quot;There&#x27;s a sudden cramping pain in your left leg. Did you strain your quadriceps? Is your rectus femoris tendon inflamed?&quot;, &quot;There&#x27;s a sudden cramping pain in your right leg. Did you strain your quadriceps? Is your rectus femoris tendon inflamed?&quot;)
 
-(set: $HP to it - (random: 1,5))</tw-passagedata><tw-passagedata pid="199" name="descendSatiety" tags="" position="3233,1697.6636052508404">(either: &quot;Your stomach rumbles. How long has it been since you&#x27;ve eaten?&quot;, &quot;You notice a growing hunger. If only you had brought a snack.&quot;)
+(set: $HP to it - (random: 1,5))</tw-passagedata><tw-passagedata pid="199" name="descendSatiety" tags="" position="3233,1697">(either: &quot;Your stomach rumbles. How long has it been since you&#x27;ve eaten?&quot;, &quot;You notice a growing hunger. If only you had brought a snack.&quot;)
 
-(set: $satiety to it - (random: 1,5))</tw-passagedata><tw-passagedata pid="200" name="descendSanity" tags="" position="3235,1808.6636052508404">(either: &quot;The darkness is oppresive. There is no sound but the echo of your footsteps and the rush of blood in your ears.&quot;, &quot;How much further can you go before you pass the point of no return? Or have you already passed it?&quot;)
+(set: $satiety to it - (random: 1,5))</tw-passagedata><tw-passagedata pid="200" name="descendSanity" tags="" position="3235,1808">(either: &quot;The darkness is oppresive. There is no sound but the echo of your footsteps and the rush of blood in your ears.&quot;, &quot;How much further can you go before you pass the point of no return? Or have you already passed it?&quot;)
 
-(set: $sanity to it - (random: 1,5))</tw-passagedata><tw-passagedata pid="201" name="TrueEnd" tags="" position="3080.6090274426188,1703.2817836490358">(if: not ($achievements contains &quot;Reach the content boundary&quot;))[(set: $achievements to it + (array: &quot;Reach the content boundary&quot;))\
+(set: $sanity to it - (random: 1,5))</tw-passagedata><tw-passagedata pid="201" name="TrueEnd" tags="" position="3080,1703">(if: not ($achievements contains &quot;Reach the content boundary&quot;))[(set: $achievements to it + (array: &quot;Reach the content boundary&quot;))\
 (color: orange)[*&#x27;&#x27;Achievement achieved: Reach the content boundary&#x27;&#x27;*
 
 ]]\
@@ -1496,7 +1500,7 @@ You begin to bound down the stairs two or three at a time, depleting reserves of
 
 When you reach the bottom you find the source of the light: a solitary candle, planted firmly in a chocolate birthday cake.
 
-[[Feast.|TrueEnd2]]</tw-passagedata><tw-passagedata pid="202" name="TrueEnd2" tags="" position="3079.6090274426188,1814.2817836490358">Once you are done you will attempt to return the way you came. It will be no easy task; it is more tiring to climb up stairs than down them, and you don&#x27;t know what you will encounter when you return to the dungeon proper. 
+[[Feast.|TrueEnd2]]</tw-passagedata><tw-passagedata pid="202" name="TrueEnd2" tags="" position="3079,1814">Once you are done you will attempt to return the way you came. It will be no easy task; it is more tiring to climb up stairs than down them, and you don&#x27;t know what you will encounter when you return to the dungeon proper. 
 
 If you even make it that far. If there even is still a dungeon above you. You feel disconnected from everything burried this deep below the earth, and you are acutely aware of the architectural impossibility of the staircase you just finished descending. You&#x27;re not sure if it even returns to the same place you came from.
 
