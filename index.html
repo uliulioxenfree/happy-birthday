@@ -100,6 +100,10 @@ tw-link:hover, enchantment-link:hover /* sets both hover link colors */
 
 
 
+<<<<<<< HEAD
+
+=======
+>>>>>>> origin/master
 
 
 
@@ -199,9 +203,16 @@ tw-link:hover, enchantment-link:hover /* sets both hover link colors */
 
 
 
+<<<<<<< HEAD
 
 
 
+=======
+<<<<<<< HEAD
+
+=======
+>>>>>>> origin/master
+>>>>>>> origin/master
 </script><tw-passagedata pid="1" name="init" tags="hide-footer" position="622,688">The entry to the birthday dungeon lies at your feet.
 
 (set: $turns to 0)\
@@ -259,7 +270,11 @@ tw-link:hover, enchantment-link:hover /* sets both hover link colors */
 (if: $dice is 1 and $diceCooldown is 0 and (random: 1, 5) &gt;= 4 and not ($card is &quot;Blessed&quot;))[
 	*Or you could [[reroll the dice|dice]]*
 	]\
+<<<<<<< HEAD
+(if: $trash &gt;0 and not($card is &quot;couch&quot;) and not($card is &quot;peckishCure&quot;) and not($card is &quot;debugMenagerie&quot;) and not ($card is &quot;findKey&quot;) and not ($card is &quot;pirates&quot;) and not ($card is &quot;ethicsTome&quot;) and not ($card is &quot;headband&quot;) and not ($card is &quot;Blessed&quot;))[*Or you could [[remove this location from the dungeon]]*
+=======
 (if: $trash &gt;0 and not($card is &quot;couch&quot;) and not($card is &quot;peckishCure&quot;) and not($card is &quot;debugMenagerie&quot;) and not ($card is &quot;exit&quot;) and not ($card is &quot;findKey&quot;) and not ($card is &quot;pirates&quot;) and not ($card is &quot;ethicsTome&quot;))[*Or you could [[remove this location from the dungeon]]*
+>>>>>>> origin/master
 	]\
 (if: $blessings contains &quot;laughter&quot;)[*Or you could [[laugh crazily at the whole situation until it goes away|lol]]*
 	]\
@@ -272,7 +287,15 @@ tw-link:hover, enchantment-link:hover /* sets both hover link colors */
 	(if: $energy &gt;100)[(go-to: &quot;energyMax&quot;)]\
 	(if: $satiety &gt;100)[(go-to: &quot;satietyMax&quot;)]\
 	]]\
+<<<<<<< HEAD
 (if: $scanner &gt;0 and not($card is &quot;couch&quot;) and not($card is &quot;peckishCure&quot;) and not($card is &quot;debugMenagerie&quot;) and not ($card is &quot;findKey&quot;) and not ($card is &quot;pirates&quot;) and not ($card is &quot;ethicsTome&quot;) and not ($card is &quot;Blessed&quot;) and not ($card is &quot;headband&quot;))[[*Or you could scatter some breadcrumbs*]&lt;crumbMessage| (click: &quot;scatter some breadcrumbs&quot;)[(set: $cards to it + (array: $card))\
+=======
+<<<<<<< HEAD
+(if: $scanner &gt;0 and not($card is &quot;couch&quot;) and not($card is &quot;peckishCure&quot;) and not($card is &quot;debugMenagerie&quot;) and not ($card is &quot;findKey&quot;) and not ($card is &quot;pirates&quot;) and not ($card is &quot;ethicsTome&quot;) and not ($card is &quot;headband&quot;) and not ($card is &quot;Blessed&quot;))[[*Or you could scatter some breadcrumbs*]&lt;crumbMessage| (click: &quot;scatter some breadcrumbs&quot;)[(set: $cards to it + (array: $card))\
+=======
+(if: $scanner &gt;0 and not($card is &quot;couch&quot;) and not($card is &quot;peckishCure&quot;) and not($card is &quot;debugMenagerie&quot;) and not ($card is &quot;findKey&quot;) and not ($card is &quot;pirates&quot;) and not ($card is &quot;ethicsTome&quot;))[[*Or you could scatter some breadcrumbs*]&lt;crumbMessage| (click: &quot;scatter some breadcrumbs&quot;)[(set: $cards to it + (array: $card))\
+>>>>>>> origin/master
+>>>>>>> origin/master
 (set: $scanner to it - 1)\
 (replace: ?crumbMessage)[*You&#x27;ll come across this room more often from now on.*]]
 	]\
@@ -350,9 +373,15 @@ $turns minutes]]\
 
 [[Onwards!|Main]]]\
 (else:)[Your attempt to flee was unsuccesful; you made it only a short distance before being mauled.
+<<<<<<< HEAD
 
 You are now tired *and* injured.(set: $energy to it - 5)(set: $HP to it - ($monster&#x27;s damage))
 
+=======
+
+You are now tired *and* injured.(set: $energy to it - 5)(set: $HP to it - ($monster&#x27;s damage))
+
+>>>>>>> origin/master
 [[Limp on.|Main]]]</tw-passagedata><tw-passagedata pid="7" name="Pat" tags="" position="756,1063">(if: (random: 1,100) &gt;= 80)[There is a moment of soft cuddly contentment. This is followed by several moments of searing pain as its claws rend your flesh.
 (set: $HP to it - $monster&#x27;s damage)(set: $sanity to it + 5)\
 
@@ -710,7 +739,15 @@ You are less hungry. But the glass sits uncomfortably in your stomach.
 (else:)[It&#x27;s an elemental elephant! It attacks using carbon, hydrogen, nitrogen and oxygen.
 
 (set: $monster to (datamap: &quot;fleeChance&quot;, 78, &quot;damage&quot;, 22))\
+<<<<<<< HEAD
 (display: &quot;monster&quot;)]</tw-passagedata><tw-passagedata pid="68" name="Average juice" tags="" position="123,1662">Average juice! It&#x27;s a slimy grey colour.
+=======
+<<<<<<< HEAD
+(display: &quot;monster&quot;)]</tw-passagedata><tw-passagedata pid="68" name="Average juice" tags="" position="123,1662">Average juice! It&#x27;s a slimy grey colour.
+=======
+(display: &quot;monster&quot;)]\</tw-passagedata><tw-passagedata pid="68" name="Average juice" tags="" position="123,1662">Average juice! It&#x27;s a slimy grey colour.
+>>>>>>> origin/master
+>>>>>>> origin/master
 
 (set: $drink to 1)\
 [[Onwards!|Main]]</tw-passagedata><tw-passagedata pid="69" name="A well-rounded gift" tags="" position="132,1790">The box contains a small sampling of all the dungeon&#x27;s finest offerings. How nice.
@@ -800,7 +837,14 @@ It is titled *A Treatise on the Treachery of Crabs.* The handwriting is neat but
 (if: (random:1,175) is 3)[(set: $cards to it + (array: &quot;jargo&quot;))]\
 (if: (random:1,50) is 4)[(set: $cards to it + (array: &quot;ethicsTome&quot;))]\
 (if: $keys &gt;=1 and (random:1,150) is 150 and not ($inventory contains &quot;headband&quot;))[(set: $cards to it + (array: &quot;headband&quot;))]\
+<<<<<<< HEAD
 (if: $blessings contains &quot;discovery&quot; and (random: 1,10) is 10 and not ($cards contains &quot;Blessed&quot;))[(set: $cards to it + (array: &quot;Blessed&quot;))]\
+=======
+<<<<<<< HEAD
+(if: $blessings contains &quot;discovery&quot; and (random: 1,12) is 12 and not ($cards contains &quot;Blessed&quot;))[(set: $cards to it + (array: &quot;Blessed&quot;))]\
+=======
+>>>>>>> origin/master
+>>>>>>> origin/master
 (if: $energy &lt;25 and not ($cards contains &quot;couch&quot;))[(set: $cards to it + (array: &quot;couch&quot;))]\
 (if: $energy &gt;= 25)[(set: $cards to it - (array: &quot;couch&quot;))]\
 (if: $turns &gt;= $nextBlessing)[(set: $cards to it + (array: &quot;blessings&quot;))]\
@@ -903,6 +947,15 @@ You pocket the key. This could come in handy later.
 (set: $keys to it + 1)\
 (if: not ($achievements contains &quot;Eat a God&quot;))[(set: $achievements to it + (array: &quot;Eat a God&quot;))]\
 [[Onwards!|Main]]</tw-passagedata><tw-passagedata pid="94" name="blessings2" tags="blessings" position="1586,169">Choose a blessing!
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+(set: $nextBlessing to $turns + 12 + (ceil: $turns/7))\
+(if: $blessings contains &quot;blessedness&quot;)[(set: $nextBlessing to it * 0.8)]\
+(set: $cards to it - (array: &quot;blessings&quot;))\
+>>>>>>> origin/master
+>>>>>>> origin/master
 
 (set: $availableBlessings to (shuffled:... (array: &quot;fitness&quot;, &quot;mindfulness&quot;, &quot;gluttony&quot;, &quot;blessedness&quot;, &quot;digestion&quot;, &quot;discovery&quot;, &quot;laughter&quot;, &quot;endurance&quot;, &quot;sacrifice&quot;, &quot;snacking&quot;, &quot;speed&quot;, &quot;opening&quot;, &quot;acquisition&quot;, &quot;boundaries&quot;) - $blessings))\
 [[Blessing of (print: $availableBlessings&#x27;s 1st)]]
@@ -924,9 +977,20 @@ You pocket the key. This could come in handy later.
 (if: not ($inventory contains &quot;socks&quot;))[(set: $gift to it + (array: &quot;[[Running socks]]&quot;))]\
 A treasure chest squats on the dungeon floor. It is decorated with a carving of (print: $chest).
 
+<<<<<<< HEAD
 [[Claim a treasure]]
 [[Leave the chest undisturbed|Main]]
 (if: $hunger &gt; 1)[[[Eat the chest, contents and all|EatPeckish]]]</tw-passagedata><tw-passagedata pid="99" name="Breadcrumbs" tags="" position="513,1915">Breadcrumbs! You can use these to increase your chances of coming across any given room in the dungeon again.
+=======
+(set: $gift to (array: &quot;[[Average juice]]&quot;,&quot;[[Dynamite]]&quot;,&quot;[[Breadcrumbs]]&quot;,&quot;[[Key]]&quot;))\
+(if: $ankh is 0)[(set: $gift to it + (array: &quot;[[A metal cross with a handle]]&quot;))]\
+(if: not ($inventory contains &quot;runners&quot;))[(set: $gift to it + (array: &quot;[[New runners]]&quot;))]\
+(if: not ($inventory contains &quot;socks&quot;))[(set: $gift to it + (array: &quot;[[Running socks]]&quot;))]\
+[[Claim a treasure]]
+[[Leave the chest undisturbed|Main]]
+(if: $hunger &gt; 1)[[[Eat the chest, contents and all|EatPeckish]]]\
+</tw-passagedata><tw-passagedata pid="99" name="Breadcrumbs" tags="" position="513,1915">Breadcrumbs! You can use these to increase your chances of coming across any given room in the dungeon again.
+>>>>>>> origin/master
 
 (set: $scanner to it + 1)\
 [[Onwards!|Main]]</tw-passagedata><tw-passagedata pid="100" name="Claim a treasure" tags="" position="429,2206">(if: $chest is &quot;an angry snake&quot;)[(set: $HP to it - 30)Pain wracks your body when you open the chest.]\
@@ -968,7 +1032,15 @@ When he&#x27;s finished he hands it back to you. &quot;You must spread the word&
 (if: $inventory contains &quot;photocopies&quot;)[[[Show him your photocopies of the treatise]]]</tw-passagedata><tw-passagedata pid="106" name="Share the treatise" tags="" position="7,1789">They edge slowly away from you.
 
 (set: $sanity to it - 5)\
+<<<<<<< HEAD
 [[Onwards!|Main]]</tw-passagedata><tw-passagedata pid="107" name="Blessing of blessedness" tags="blessings" position="1720,44">You will receive a blessing slightly more frequently, and when you do there will be more blessings to choose from.
+=======
+<<<<<<< HEAD
+[[Onwards!|Main]]</tw-passagedata><tw-passagedata pid="107" name="Blessing of blessedness" tags="blessings" position="1720,44">You will receive blessings slightly more often, and when you do there will be more blessings to choose from.
+=======
+[[Onwards!|Main]]</tw-passagedata><tw-passagedata pid="107" name="Blessing of blessedness" tags="blessings" position="1720,44">You will be blessed slightly more often, and when you are there will be more blessings to choose from.
+>>>>>>> origin/master
+>>>>>>> origin/master
 
 (set: $blessings to it + (array: &quot;blessedness&quot;))\
 [[Hallelujah!|Main]]</tw-passagedata><tw-passagedata pid="108" name="Blessing of mindfulness" tags="blessings" position="1470,44">Your sanity automatically regenerates when it gets low.
@@ -1231,7 +1303,10 @@ When you pull away your lips are stained and your heart is pounding.
 (set: $HP to 1)\
 (set: $sanity to (ceil: $sanity/2))\
 (if: not ($achievements contains &quot;Consumate a relationship&quot;))[(set: $achievements to it + (array: &quot;Consumate a relationship&quot;))]\
+<<<<<<< HEAD
+=======
 
+>>>>>>> origin/master
 It leans in close to you once more. This time, though, you feel something seep out of your mouth. Your knees buckle; your vision blears; your ears ring. The pain begins to fade into blankness.
 
 And then, abruptly, it stops. You hear footsteps - real footsteps! - walk away from you. The ghost with the bleeding mouth took almost everything, but it left just enough for you to survive.
@@ -1264,9 +1339,18 @@ When you wake you find a note thanking you for your donation and a key placed on
 (set: $HP to it - 3)\
 [[Onwards!|Main]]</tw-passagedata><tw-passagedata pid="147" name="blessings" tags="" position="1837,294">Something sparkles in the dungeon ahead.
 
+<<<<<<< HEAD
 (set: $nextBlessing to $turns + 15 + (round: $turns/7))\
 (if: $blessings contains &quot;blessedness&quot;)[(set: $nextBlessing to it - 5)]\
 (set: $cards to it - (array: &quot;blessings&quot;))\
+=======
+<<<<<<< HEAD
+(set: $nextBlessing to $turns + 15 + (round: $turns/6))\
+(if: $blessings contains &quot;blessedness&quot;)[(set: $nextBlessing to it - 5)]\
+(set: $cards to it - (array: &quot;blessings&quot;))\
+=======
+>>>>>>> origin/master
+>>>>>>> origin/master
 [[Proceed.|blessings2]]</tw-passagedata><tw-passagedata pid="148" name="displeasedGod" tags="" position="626,1522">(go-to: &quot;displeasedGod2&quot;)</tw-passagedata><tw-passagedata pid="149" name="furiousGod" tags="" position="1059,1705">(go-to: &quot;furiousGodMenu&quot;)</tw-passagedata><tw-passagedata pid="150" name="Blessing of acquisition" tags="blessings" position="1964,50">You find a collection of useful things.
 
 (set: $scanner to it + 1)\
@@ -1539,7 +1623,15 @@ But you escape. And you hold the arrow in your hand as a souvenier.
 
 (set: $energy to it - 5)(set: $HP to it - ($monster&#x27;s damage))\
 [[Limp on.|Main]]]
+<<<<<<< HEAD
 </tw-passagedata><tw-passagedata pid="204" name="ethicsTome" tags="" position="2181,2157">You find a bookshelf. It carries a solitary book - a hardcover tome titled *The Ethics of Dungeoneering: Interdisciplinary Perspectives.*
+=======
+<<<<<<< HEAD
+</tw-passagedata><tw-passagedata pid="204" name="ethicsTome" tags="" position="2181,2157">You find a bookshelf. It carries a solitary book - a hardcover tome titled *The Ethics of Dungeoneering: Interdisciplinary Perspectives.*
+=======
+</tw-passagedata><tw-passagedata pid="204" name="ethicsTome" tags="" position="2181.5,2157.6999410733333">You find a bookshelf. It carries a solitary book - a hardcover tome titled *The Ethics of Dungeoneering: Interdisciplinary Perspectives.*
+>>>>>>> origin/master
+>>>>>>> origin/master
 
 (set: $badTome to -1)\
 [[Read]]
@@ -1548,14 +1640,33 @@ But you escape. And you hold the arrow in your hand as a souvenier.
 Let&#x27;s see how fast you can run now.
 
 (set: $fleeBonus to it + 8)\
+<<<<<<< HEAD
 [[Onwards!|Main]]</tw-passagedata><tw-passagedata pid="206" name="Read" tags="" position="2208,2313">(set: $cards to it - (array: &quot;ethicsTome&quot;))\
+=======
+<<<<<<< HEAD
+[[Onwards!|Main]]</tw-passagedata><tw-passagedata pid="206" name="Read" tags="" position="2208,2313">(set: $cards to it - (array: &quot;ethicsTome&quot;))\
+(set: $badTome to it + 1)\
+(set: $sanity to it + 1)\
+(if: $badTome &gt;=100)[(go-to: &quot;Finish Reading&quot;)]\
+(either: &quot;How interesting!&quot;, &quot;You never knew that!&quot;, &quot;What a cogent argument!&quot;, &quot;You find yourself agreeing with this chapter&#x27;s thesis.&quot;, &quot;You find yourself disagreeing with this chapter&#x27;s thesis.&quot;, &quot;Another page?&quot;, &quot;Fascinating!&quot;, &quot;What a well-chosen collection of papers.&quot;, &quot;This author&#x27;s institutional affiliation is especially impressive.&quot;, &quot;What an under-appreciated field of study.&quot;, &quot;What a well-chosen quotation!&quot;, &quot;This section has an especially strong concluding paragraph.&quot;, &quot;You find yourself wanting to learn more about the ethics of dungeoneering.&quot;, &quot;You would normally only expect this kind of quality from a university press.&quot;, &quot;This chapter contains at least five neologisms. And they&#x27;re all amazing!&quot;, &quot;The pages fly by.&quot;, &quot;You are learning so much!&quot;)
+
+[[Continue reading|Read]] 
+[[Finish reading]] *(There is a (print: $badTome)% chance this will have a bad outcome.)*</tw-passagedata><tw-passagedata pid="207" name="Finish reading" tags="" position="2066,2417">(if: $badTome &lt;= (random: 1, 100))[You put the book down. What a pleasant interlude.
+=======
+[[Onwards!|Main]]</tw-passagedata><tw-passagedata pid="206" name="Read" tags="" position="2208.5,2313.6999410733333">(set: $cards to it - (array: &quot;ethicsTome&quot;))\
+>>>>>>> origin/master
 (set: $badTome to it + 1)\
 (set: $sanity to it + 1)\
 (if: $badTome &gt;=100)[(go-to: &quot;Finish Reading&quot;)]\
 (either: &quot;How interesting!&quot;, &quot;You never knew that!&quot;, &quot;What a cogent argument!&quot;, &quot;You find yourself agreeing with this chapter&#x27;s thesis.&quot;, &quot;You find yourself disagreeing with this chapter&#x27;s thesis.&quot;, &quot;Another page?&quot;, &quot;Fascinating!&quot;, &quot;What a well-chosen collection of papers.&quot;, &quot;This author&#x27;s institutional affiliation is especially impressive.&quot;, &quot;What an under-appreciated field of study.&quot;, &quot;What a well-chosen quotation!&quot;, &quot;This section has an especially strong concluding paragraph.&quot;, &quot;You find yourself wanting to learn more about the ethics of dungeoneering.&quot;, &quot;You would normally only expect this kind of quality from a university press.&quot;, &quot;This chapter contains at least five neologisms. And they&#x27;re all amazing!&quot;, &quot;The pages fly by.&quot;,&quot;This page was written entirely in the passive voice.&quot;)
 
 [[Continue reading|Read]] 
+<<<<<<< HEAD
 [[Finish reading]] *(There is a (print: $badTome)% chance this will have a bad outcome.)*</tw-passagedata><tw-passagedata pid="207" name="Finish reading" tags="" position="2066,2417">(if: $badTome &lt;= (random: 1, 100))[You put the book down. What a pleasant interlude.
+=======
+[[Finish reading]] *(There is a (print: $badTome)% chance this will have a bad outcome.)*</tw-passagedata><tw-passagedata pid="207" name="Finish reading" tags="" position="2066.5,2417.6999410733333">(if: $badTome &lt;= (random: 1, 100))[You put the book down. What a pleasant interlude.
+>>>>>>> origin/master
+>>>>>>> origin/master
 
 [[Onwards!|Main]]]\
 (else:)[You put the book down, but you can&#x27;t stop turning its ideas around in your head. Could Arrowson&#x27;s defence of Novick succeed? Is Wellington interpreting Foxbridge charitably?
